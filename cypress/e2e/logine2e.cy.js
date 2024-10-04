@@ -37,5 +37,14 @@ describe('Form inputs validated', () => {
    cy.get('[data-cy="password-input"]').type("1234Ab*.");
    cy.get('[data-cy="submit-button"]').should("be.enabled");
   });
+  it('submits form on validated inputs', () => {
+    cy.visit('http://localhost:5178/')
+    cy.get('[data-cy="ad-input"]').type("cansu");
+    cy.get('[data-cy="soyad-input"]').type("özdemir");
+    cy.get('[data-cy="email-input"]').type("cansuozzdemir@gmail.com");
+    cy.get('[data-cy="password-input"]').type("1234Ab*.");
+    cy.get('[data-cy="submit-button"]').click();
+    cy.get('[data-cy="result-message"]').should("be.visible");
+   });
 });
 });

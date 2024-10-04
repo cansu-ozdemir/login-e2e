@@ -159,7 +159,7 @@ export default function Login() {
   <Button disabled={!isValid} data-cy="submit-button">Kayıt Ol</Button>
 </Form>
 </CardBody>
-<CardFooter>ID: {id}</CardFooter>
+{id && <CardFooter data-cy="result-message">ID: {id}</CardFooter>}
 </Card>
     );
 }
