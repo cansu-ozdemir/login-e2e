@@ -10,7 +10,7 @@ const initialValues ={
     password: "",
 }
 
-const errorMessages = {
+export const errorMessages = {
     ad: "Adınızı en az 3 karakter giriniz.",
     soyad: "Soyadınızı en az 3 karakter giriniz.",
     email: "Geçerli bir email adresi giriniz.",
@@ -104,8 +104,9 @@ export default function Login() {
       onChange = {handleChange}
       value ={formData.ad}
       invalid={errors.ad}
+      data-cy="ad-input"
     />
-    {errors.ad && <FormFeedback>{errorMessages.ad}</FormFeedback> }
+    {errors.ad && (<FormFeedback data-cy="error-message">{errorMessages.ad}</FormFeedback> )}
   </FormGroup>
   <FormGroup>
     <Label for="soyad">
@@ -119,8 +120,9 @@ export default function Login() {
       onChange = {handleChange}
       value ={formData.soyad}
       invalid={errors.soyad}
+      data-cy="soyad-input"
     />
-    {errors.soyad && <FormFeedback>{errorMessages.soyad}</FormFeedback> }
+    {errors.soyad && (<FormFeedback data-cy="error-message">{errorMessages.soyad}</FormFeedback> )}
   </FormGroup>
   <FormGroup>
     <Label for="email">
@@ -134,8 +136,9 @@ export default function Login() {
       onChange = {handleChange}
       value ={formData.email}
       invalid={errors.email}
+      data-cy="email-input"
     />
-    {errors.email && <FormFeedback>{errorMessages.email}</FormFeedback> }
+    {errors.email && (<FormFeedback data-cy="error-message">{errorMessages.email}</FormFeedback> )}
   </FormGroup>
   <FormGroup>
     <Label for="password">
@@ -149,10 +152,11 @@ export default function Login() {
       onChange = {handleChange}
       value ={formData.password}
       invalid={errors.password}
+      data-cy="password-input"
     />
-    {errors.password && <FormFeedback>{errorMessages.password}</FormFeedback> }
+    {errors.password && (<FormFeedback data-cy="error-message">{errorMessages.password}</FormFeedback> )}
   </FormGroup>
-  <Button disabled={!isValid}>Kayıt Ol</Button>
+  <Button disabled={!isValid} data-cy="submit-button">Kayıt Ol</Button>
 </Form>
 </CardBody>
 <CardFooter>ID: {id}</CardFooter>

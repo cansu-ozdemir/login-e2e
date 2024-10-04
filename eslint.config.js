@@ -5,8 +5,11 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
+  
   { ignores: ['dist'] },
+  
   {
+    
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -22,7 +25,11 @@ export default [
       react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      cypress: require('eslint-plugin-cypress'),
     },
+    extends: [
+      "plugin:cypress/recommended"
+    ],
     rules: {
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
